@@ -1,4 +1,5 @@
-import Widget from "../Widget";
+import Widget from '../Widget';
+
 const widget = new Widget();
 
 test('should get array with string', () => {
