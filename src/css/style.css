@@ -18,8 +18,13 @@
 .footer {
   width: 90%;
   display: flex;
+  flex-wrap: wrap;
   position: absolute;
   bottom: 10px;
+}
+
+.box{
+  width: 80%;
 }
 
 .form {
@@ -31,7 +36,7 @@ input {
   height: 30px;
 }
 
-.actions {
+.actions, .record {
   width: 5%;
   display: flex;
 }
@@ -44,6 +49,7 @@ input {
 
 .list {
   overflow: auto;
+  height: 90%;
 }
 
 .ticket {
@@ -58,7 +64,7 @@ input {
   margin-bottom: 10px;
 }
 
-.text {
+.elem {
   width: 67%;
   font-weight: bold;
 }
@@ -87,6 +93,30 @@ input {
   background-color: white;
 }
 
-.cancel, .ok {
+.reset, .ok {
   margin-top: 15px;
+}
+
+.form-error {
+  position: absolute;
+  padding: 5px 10px;
+  width: 150px;
+  background: #fff;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  border: solid 1px burlywood;
+}
+
+.hidden {
+  display: none;
+}
+
+.stop, .cancel, .time {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+video {
+  width: 100%;
 }
