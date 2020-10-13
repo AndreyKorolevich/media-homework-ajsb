@@ -1,6 +1,8 @@
 export default class Widget {
-  constructor(container) {
+  constructor(container, camera, micro) {
     this.container = container;
+    this.camera = camera;
+    this.micro = micro;
     this.addTicket = this.addTicket.bind(this);
     this.recordData = this.recordData.bind(this);
     this.timer = this.timer.bind(this);
@@ -17,8 +19,8 @@ export default class Widget {
         <input class="form-input" name="input" type="text">
       </form>
       <div class="actions">
-        <div class="video"><img src="../../pic/camcorder.png"></div>
-        <div class="audio"><img src="../../pic/microphone.png"></div>
+        <div class="video"><img src="${this.camera}"></div>
+        <div class="audio"><img src="${this.micro}"></div>
       </div>
       <div class="record hidden">
         <div class="stop">&#10004</div>
@@ -147,9 +149,9 @@ export default class Widget {
   }
 
   timer() {
-   const time =  this.container.querySelector('.time');
-   let count = 1;
-   this.timerId = setInterval(() => {
+    const time = this.container.querySelector('.time');
+    let count = 1;
+    this.timerId = setInterval(() => {
       time.textContent = count;
       count++
     }, 1000)
@@ -160,7 +162,7 @@ export default class Widget {
     this.container.querySelector('.actions').classList.add('hidden');
     this.timer();
 
-     (async () => {
+    (async () => {
       if (!navigator.mediaDevices && !window.MediaRecorder) {
         return;
       }
